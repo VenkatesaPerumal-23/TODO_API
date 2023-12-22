@@ -263,10 +263,6 @@ app.get("/agenda/", async (request, response) => {
 
 app.post("/todos/", async (request, response) => {
   const { id, todo, priority, status, category, dueDate } = request.body;
-
-  const formatDate = require("date-fns/format");
-  const newDate = formatDate(dueDate, "yyyy-MM-dd");
-
   const postTodoQuery = `
     INSERT INTO
         todo (id, todo, priority, status, category, due_date)
